@@ -3,12 +3,9 @@ package br.edu.utfpr.fanstasygame.model;
 import lombok.*;
 import org.hibernate.annotations.Type;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.List;
 import java.util.UUID;
-
-import static javax.persistence.GenerationType.AUTO;
 
 @Entity
 @Getter
@@ -19,7 +16,7 @@ import static javax.persistence.GenerationType.AUTO;
 @ToString
 public class Players {
 
-    @Id @GeneratedValue
+    @Id  @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
     private String name;
@@ -27,4 +24,9 @@ public class Players {
     private String position;
     private String isIGL;
     private String age;
+
+    @ManyToOne //atribuindo muitos jogadores para um time
+    @JoinColumn(name = "professional_teams_ID")
+    private ProfessionalTeams professionalTeam;
+
 }
