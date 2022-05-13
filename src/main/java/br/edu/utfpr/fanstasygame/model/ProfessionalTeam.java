@@ -4,7 +4,7 @@ import javax.persistence.*;
 import java.util.List;
 
 @Entity
-public class ProfessionalTeams {
+public class ProfessionalTeam {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -12,5 +12,5 @@ public class ProfessionalTeams {
     private String name;
 
     @OneToMany(mappedBy = "professionalTeam", cascade = CascadeType.ALL)
-    private List<Players> players;
+    private List<Player> players;
 }

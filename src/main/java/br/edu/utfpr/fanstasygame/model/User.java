@@ -3,7 +3,6 @@ package br.edu.utfpr.fanstasygame.model;
 import lombok.*;
 import org.hibernate.annotations.Type;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -18,7 +17,7 @@ import static javax.persistence.GenerationType.AUTO;
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
-public class Users {
+public class User {
 
     @Id @GeneratedValue(strategy = AUTO) @Type(type = "uuid-char")
     private UUID id;
