@@ -1,5 +1,6 @@
-package br.edu.utfpr.fanstasygame.model;
+package br.edu.utfpr.fanstasygame.Player;
 
+import br.edu.utfpr.fanstasygame.ProfessionalTeam.ProfessionalTeamModel;
 import lombok.*;
 
 import javax.persistence.*;
@@ -11,11 +12,13 @@ import javax.persistence.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
-public class Player {
+@Table(name = "player")
+public class PlayerModel {
 
     @Id  @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
+    private String nickName;
     private String name;
     private String lastName;
     private String position;
@@ -23,7 +26,7 @@ public class Player {
     private String age;
 
     @ManyToOne //atribuindo muitos jogadores para um time
-    @JoinColumn(name = "professional_team_ID")
-    private ProfessionalTeam professionalTeam;
+    @JoinColumn(name = "professional_team_id")
+    private ProfessionalTeamModel professionalTeam;
 
 }

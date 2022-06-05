@@ -1,5 +1,6 @@
-package br.edu.utfpr.fanstasygame.model;
+package br.edu.utfpr.fanstasygame.ProfessionalTeam;
 
+import br.edu.utfpr.fanstasygame.Player.PlayerModel;
 import lombok.*;
 
 import javax.persistence.*;
@@ -11,7 +12,8 @@ import java.util.List;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class ProfessionalTeam {
+@Table(name = "professional_team")
+public class ProfessionalTeamModel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -19,5 +21,5 @@ public class ProfessionalTeam {
     private String name;
 
     @OneToMany(mappedBy = "professionalTeam", cascade = CascadeType.ALL)
-    private List<Player> players;
+    private List<PlayerModel> players;
 }
