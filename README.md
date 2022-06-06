@@ -5,3 +5,7 @@ CAMPUS PATO BRANCO
 
    <img src="https://i.imgur.com/jVOT5BJ.jpg"  
    style="float: left; margin-right: 10px;" />
+
+ - montar time
+ - gerar pontos por rodada
+ - criação de liga
