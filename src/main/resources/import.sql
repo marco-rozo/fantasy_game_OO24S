@@ -1,8 +1,13 @@
+-- INSERINDO USUÁRIO
 INSERT INTO "user" (id,email,name,last_name,password) VALUES (1, 'marco@gmail.com', 'marco', 'rozo', '123');
 INSERT INTO "user" (id,email,name,last_name,password) VALUES (2, 'may@gmail.com', 'may', 'willem', '123');
+
+-- INSERINDO TIMES PROFISSIONAIS
 INSERT INTO "professional_team" (id,name) VALUES (1, 'Imperial');
 INSERT INTO "professional_team" (id,name) VALUES (2, 'Furia');
 INSERT INTO "professional_team" (id,name) VALUES (3, 'Faze');
+
+--INSERINDO JOGADORES PROFISSIONAIS
 INSERT INTO "player" (id,nick_name, professional_team_id, isigl) VALUES (1, 'Fallen', 1, true);
 INSERT INTO "player" (id,nick_name, professional_team_id, isigl) VALUES (2, 'Fer', 1, false);
 INSERT INTO "player" (id,nick_name, professional_team_id, isigl) VALUES (3, 'VINI', 1, false);
