@@ -31,5 +31,29 @@ public class TeamService {
         teamRepository.saveAndFlush(team);
     }
 
+    // * 1.2
+    protected void addPLayers(PlayerModel player){
+        try {
+            if (!checkPlayerList(player)){
+                playersList.add(player);
+            }
+        } catch (Exception e){
+            log.error(e.toString());
+        }
+    }
 
+    protected void addPlayerInTeam(List<PlayerModel> playersList, TeamModel team){
+//        var teamtoUpdate = teamRepository.getById(team.getId());
+        var teamtoUpdate = teamRepository.getById(Long.valueOf(1));
+        teamtoUpdate.setPlayers(playersList);
+
+        // * 1.4 (UPDATE???)
+        teamRepository.saveAndFlush(teamtoUpdate);
+    }
+
+    // * 1.3
+    protected boolean checkPlayerList(PlayerModel player){
+        boolean response = !playersList.contains(player) && playersList.size() != 5;
+        return response;
+    }
 }
