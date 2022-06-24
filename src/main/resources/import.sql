@@ -84,7 +84,44 @@ INSERT INTO "player" (id,nick_name, professional_team_id, isigl) VALUES (54, 'Al
 INSERT INTO "player" (id,nick_name, professional_team_id, isigl) VALUES (55, 'mONESY', 11, false);
 
 --INSERINDO CAMPEONATO
-INSERT INTO "championship"(id, name) VALUES (1, 'PGL Major Antwerp 2022');
+INSERT INTO "championship"(id, name) VALUES (1, 'PGL Major Antwerp 2022 - Legends match');
 
 --INSERINDO RODADAS
 INSERT INTO "round" (id,championship_id) VALUES (1, 1);
+INSERT INTO "round" (id,championship_id) VALUES (2, 1);
+INSERT INTO "round" (id,championship_id) VALUES (3, 1);
+
+--INSERINDO PARTIDAS DO MAJOR
+INSERT INTO "match"(id, occurred_at, round_id, teama_id, teamb_id) VALUES (1, '2022-05-19 13:00:00', 1, 2, 8); --FURIA X SPIRIT
+INSERT INTO "match"(id, occurred_at, round_id, teama_id, teamb_id) VALUES (2, '2022-05-19 16:00:00', 1, 3, 6); --FAZE X NIP
+INSERT INTO "match"(id, occurred_at, round_id, teama_id, teamb_id) VALUES (3, '2022-05-20 13:00:00', 1, 10, 7); --CPH FLAMES X ENCE
+INSERT INTO "match"(id, occurred_at, round_id, teama_id, teamb_id) VALUES (4, '2022-05-20 16:00:00', 1, 9, 5); --HEROIC X NAVI
+INSERT INTO "match"(id, occurred_at, round_id, teama_id, teamb_id) VALUES (5, '2022-05-21 13:00:00', 2, 7, 5); --ENCE X NAVI
+INSERT INTO "match"(id, occurred_at, round_id, teama_id, teamb_id) VALUES (6, '2022-05-21 16:00:00', 2, 3, 8); --FAZE X SPIRIT
+INSERT INTO "match"(id, occurred_at, round_id, teama_id, teamb_id) VALUES (7, '2022-05-21 16:00:00', 3, 3, 5); --FAZE X NAVI
+
+--INSERINDO PERFORMANCE DOS JOGADORES
+--FURIA
+INSERT INTO "performance_per_round"(id, round_id, player_id, adr, assists, death, kast, kill, hs, rating) VALUES (1, 1, 6, 66.1, 6, 38, 71.2, 31, 16, 0.94); --arT
+INSERT INTO "performance_per_round"(id, round_id, player_id, adr, assists, death, kast, kill, hs, rating) VALUES (2, 1, 7, 78.1, 10, 35, 71.2, 33, 15, 0.94); --yuurih
+INSERT INTO "performance_per_round"(id, round_id, player_id, adr, assists, death, kast, kill, hs, rating) VALUES (3, 1, 8, 58.3, 8, 36, 51.9, 20, 9, 0.65); --KSC
+INSERT INTO "performance_per_round"(id, round_id, player_id, adr, assists, death, kast, kill, hs, rating) VALUES (4, 1, 9, 51.8, 8, 36, 55.8, 24, 11, 0.75); --drop
+INSERT INTO "performance_per_round"(id, round_id, player_id, adr, assists, death, kast, kill, hs, rating) VALUES (5, 1, 10, 71.2, 11, 38, 61.5, 37, 7, 0.99); --saffee
+--Spirit
+INSERT INTO "performance_per_round"(id, round_id, player_id, adr, assists, death, kast, kill, hs, rating) VALUES (6, 1, 36, 72.4, 7, 23, 73.1, 38, 14, 1.29); --degster
+INSERT INTO "performance_per_round"(id, round_id, player_id, adr, assists, death, kast, kill, hs, rating) VALUES (7, 1, 37, 73.2, 12, 29, 71.2, 32, 14, 1.11); --chopper
+INSERT INTO "performance_per_round"(id, round_id, player_id, adr, assists, death, kast, kill, hs, rating) VALUES (8, 1, 38, 66.0, 5, 29, 71.2, 33, 15, 1.09); --magixx
+INSERT INTO "performance_per_round"(id, round_id, player_id, adr, assists, death, kast, kill, hs, rating) VALUES (9, 1, 39, 92.2, 12, 32, 73.1, 42, 22, 1.32); --s1ren
+INSERT INTO "performance_per_round"(id, round_id, player_id, adr, assists, death, kast, kill, hs, rating) VALUES (10, 1, 70, 78.1, 8, 33, 65.4, 33, 16, 1.05); --Pasti
+--NIP
+INSERT INTO "performance_per_round"(id, round_id, player_id, adr, assists, death, kast, kill, hs, rating) VALUES (11, 1, 26, 60.4, 16, 47, 63.3, 44, 14, 0.88); --es3tag
+INSERT INTO "performance_per_round"(id, round_id, player_id, adr, assists, death, kast, kill, hs, rating) VALUES (12, 1, 27, 66.0, 14, 48, 70.9, 45, 23, 0.97); --REZ
+INSERT INTO "performance_per_round"(id, round_id, player_id, adr, assists, death, kast, kill, hs, rating) VALUES (13, 1, 28, 82.6, 17, 54, 73.4, 64, 30, 1.14); --hampus
+INSERT INTO "performance_per_round"(id, round_id, player_id, adr, assists, death, kast, kill, hs, rating) VALUES (14, 1, 29, 77.7, 12, 58, 63.3, 57, 31, 1.03); --Brollan
+INSERT INTO "performance_per_round"(id, round_id, player_id, adr, assists, death, kast, kill, hs, rating) VALUES (15, 1, 30, 60.7, 17, 54, 69.6, 38, 11, 0.83); --Plopski
+--Faze
+INSERT INTO "performance_per_round"(id, round_id, player_id, adr, assists, death, kast, kill, hs, rating) VALUES (16, 1, 11, 66.6, 10, 56, 64.6, 47, 20, 0.90); --KarrigaN
+INSERT INTO "performance_per_round"(id, round_id, player_id, adr, assists, death, kast, kill, hs, rating) VALUES (17, 1, 12, 77.7, 13, 48, 75.9, 61, 34, 1.17); --ropz
+INSERT INTO "performance_per_round"(id, round_id, player_id, adr, assists, death, kast, kill, hs, rating) VALUES (18, 1, 13, 77.1, 14, 51, 72.2, 53, 34, 1.07); --Twistzz
+INSERT INTO "performance_per_round"(id, round_id, player_id, adr, assists, death, kast, kill, hs, rating) VALUES (19, 1, 14, 75.9, 13, 53, 63.3, 58, 22, 1.05); --rain
+INSERT INTO "performance_per_round"(id, round_id, player_id, adr, assists, death, kast, kill, hs, rating) VALUES (20, 1, 15, 68.7, 10, 42, 67.1, 52, 10, 1.05); --broky
