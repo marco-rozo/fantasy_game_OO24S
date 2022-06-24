@@ -27,6 +27,7 @@ public class PerformancePerRoundModel {
     private PlayerModel player;
 
     private Integer kill;
+    private Integer hs;
     private Integer death;
     private Integer assists;
     private Double kast; //Porcentagem de rodadas em que o jogador matou, assistiu, sobreviveu ou foi negociado
