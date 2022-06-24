@@ -15,4 +15,11 @@ CAMPUS PATO BRANCO
 
 
 2. Gerar pontos por rodada
+   * Inserção dos atributos para cada jogador
+   * Validação da Partida
+   * Geração dos pontos por cada atributo
+     * Valor no .propriedade para calculo de pontos por atributo
+     * Soma total dos pontos
+     
+
 3. Criação de liga
