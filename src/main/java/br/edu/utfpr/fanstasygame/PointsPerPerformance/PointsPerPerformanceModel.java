@@ -25,6 +25,7 @@ public class PointsPerPerformanceModel {
     private PerformancePerRoundModel performance;
 
     private Double killPoints;
+    private Double hsPoints;
     private Double deathPoints;
     private Double assistsPoints;
     private Double kastPoints;
