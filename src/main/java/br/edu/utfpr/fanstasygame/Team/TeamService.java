@@ -2,9 +2,7 @@ package br.edu.utfpr.fanstasygame.Team;
 
 import br.edu.utfpr.fanstasygame.Player.PlayerModel;
 import br.edu.utfpr.fanstasygame.PlayerTeam.PlayerTeamModel;
-import br.edu.utfpr.fanstasygame.PlayerTeam.PlayerTeamRepository;
 import br.edu.utfpr.fanstasygame.PlayerTeam.PlayerTeamService;
-import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
