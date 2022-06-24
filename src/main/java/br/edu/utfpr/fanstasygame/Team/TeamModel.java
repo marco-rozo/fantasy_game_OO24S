@@ -1,6 +1,7 @@
 package br.edu.utfpr.fanstasygame.Team;
 
 import br.edu.utfpr.fanstasygame.Player.PlayerModel;
+import br.edu.utfpr.fanstasygame.PlayerTeam.PlayerTeamModel;
 import br.edu.utfpr.fanstasygame.User.UserModel;
 import br.edu.utfpr.fanstasygame.Leagues.LeagueModel;
 import lombok.*;
@@ -34,7 +35,8 @@ public class TeamModel {
     @JoinColumn(name = "league_id")
     private LeagueModel league;
 
-    @ManyToMany
-    private List<PlayerModel> players;
+    @OneToMany(mappedBy = "player")
+    @Getter
+    private List<PlayerTeamModel> players;
 
 }
