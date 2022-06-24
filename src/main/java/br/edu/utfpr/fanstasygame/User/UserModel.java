@@ -1,10 +1,8 @@
 package br.edu.utfpr.fanstasygame.User;
 
-import br.edu.utfpr.fanstasygame.ProfessionalTeam.ProfessionalTeamModel;
+import br.edu.utfpr.fanstasygame.Team.TeamModel;
 import lombok.*;
-import net.bytebuddy.implementation.bind.annotation.Default;
 import org.hibernate.annotations.Type;
-import org.springframework.boot.context.properties.bind.DefaultValue;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
@@ -30,4 +28,7 @@ public class UserModel {
     private String email;
     private String password;
     private LocalDateTime createdAt;
+
+    @OneToOne
+    private TeamModel team;
 }
