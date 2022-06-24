@@ -1,10 +1,14 @@
 package br.edu.utfpr.fanstasygame.Team;
 
 import br.edu.utfpr.fanstasygame.Player.PlayerModel;
+import br.edu.utfpr.fanstasygame.PlayerTeam.PlayerTeamModel;
+import br.edu.utfpr.fanstasygame.PlayerTeam.PlayerTeamRepository;
+import br.edu.utfpr.fanstasygame.PlayerTeam.PlayerTeamService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,42 +22,50 @@ import java.util.List;
 
 @Service
 @Slf4j
-@RequiredArgsConstructor
-public class TeamService {
-
-    private final TeamRepository teamRepository;
-
-    //iniciando o ArrayList vazio
-    List<PlayerModel> playersList = new ArrayList<PlayerModel>();
+public record TeamService (TeamRepository teamRepository, PlayerTeamService playerTeamService) {
 
     // * 1.1
     public void createTeam(TeamModel team){
         teamRepository.saveAndFlush(team);
     }
 
-    // * 1.2
-    protected void addPLayers(PlayerModel player){
+    //Adiciona lista de jogadores ao time (já criado)
+    private void addPlayerInTeam(PlayerModel player, TeamModel team){
+        var teamtoUpdate = teamRepository.getById(Long.valueOf(1));
+
+        //Pega a lista de jogadores por time
+        ArrayList<PlayerTeamModel> players = playerTeamService.getAllPlayersTeam(team);
+
         try {
-            if (!checkPlayerList(player)){
-                playersList.add(player);
+            if (!checkPlayerList(player, players)){
+                //adiciona os
+                players.add(createPlayerTeam(player, team));
+                teamtoUpdate.setPlayers(players);
+                teamRepository.save(teamtoUpdate);
             }
         } catch (Exception e){
             log.error(e.toString());
         }
     }
 
-    protected void addPlayerInTeam(List<PlayerModel> playersList, TeamModel team){
-//        var teamtoUpdate = teamRepository.getById(team.getId());
-        var teamtoUpdate = teamRepository.getById(Long.valueOf(1));
-        teamtoUpdate.setPlayers(playersList);
-
-        // * 1.4 (UPDATE???)
-        teamRepository.saveAndFlush(teamtoUpdate);
+    //Verifica se é possivel adicionar o jogador a lista
+    private boolean checkPlayerList(PlayerModel player, ArrayList<PlayerTeamModel> list){
+        //Jogador nao pode estar inserido na lista
+        //Lista não pode ser maior do que 5
+        return !list.contains(player) && list.size() != 5;
     }
 
-    // * 1.3
-    protected boolean checkPlayerList(PlayerModel player){
-        boolean response = !playersList.contains(player) && playersList.size() != 5;
-        return response;
+
+    //Adiciona os jogadores ao time
+    private PlayerTeamModel createPlayerTeam(PlayerModel player, TeamModel team){
+        log.info("creating PlayerTeam to player {}, team {}",
+                player.getNickName(), team.getId());
+        PlayerTeamModel playerTeam = PlayerTeamModel.builder()
+                .team(team)
+                .player(player)
+                .at(LocalDateTime.now())
+                .build();
+
+        return playerTeam;
     }
 }
